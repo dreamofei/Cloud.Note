@@ -1,0 +1,7 @@
+D:\Jiang\D\MyProject\VS2013\Web\Cloud.Note\main\Cloud.Note.Core\bin\Debug\Cloud.Note.Core.dll
+D:\Jiang\D\MyProject\VS2013\Web\Cloud.Note\main\Cloud.Note.Core\bin\Debug\Cloud.Note.Core.pdb
+D:\Jiang\D\MyProject\VS2013\Web\Cloud.Note\main\Cloud.Note.Core\obj\Debug\Cloud.Note.Core.dll
+D:\Jiang\D\MyProject\VS2013\Web\Cloud.Note\main\Cloud.Note.Core\obj\Debug\Cloud.Note.Core.pdb
+D:\Jiang\D\MyProject\VS2013\Web\Cloud.Note\bin\Debug\Cloud.Note.Core.dll
+D:\Jiang\D\MyProject\VS2013\Web\Cloud.Note\bin\Debug\Cloud.Note.Core.pdb
+D:\Jiang\D\MyProject\VS2013\Web\Cloud.Note\main\Cloud.Note.Core\obj\Debug\Cloud.Note.Core.csprojResolveAssemblyReference.cache

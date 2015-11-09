@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <object id="SampleDao" type="Cloud.Note.Dao.SampleDao, Cloud.Note" parent="AbstractDao">
+  </object>
+  
+  <object id="UserDao" type="Cloud.Note.Dao.UserDao, Cloud.Note" parent="AbstractDao">
+  </object>
+</objects>

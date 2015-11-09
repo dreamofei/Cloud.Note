@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database" xmlns:tx="http://www.springframework.net/tx">
+  <db:provider id="DbProvider" provider="SqlServer-2.0" connectionString="Data Source=localhost;Initial Catalog=Note;Integrated Security=false;UID=sa;pwd=1234;Connect Timeout=1800;" />
+
+</objects>
