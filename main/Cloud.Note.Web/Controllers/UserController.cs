@@ -25,7 +25,7 @@ namespace Cloud.Note.Web.Controllers
             return UserService.GetUser();
         }
 
-        public JsonResult Get()
+        public JsonResult Get()   
         {
             Cloud.Note.Domain.User user=UserService.Get();
             if(user==null)
@@ -40,6 +40,7 @@ namespace Cloud.Note.Web.Controllers
             User returnUser = UserService.ValidateUser(user);
             if (returnUser == null)
             {
+                //HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "*");
                 return Json(new { }, ResultType.Failure, "用户名或密码错误");
             }
             return Json(

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Cloud.Note.Domain;
+using Cloud.Note.Service;
+using Spring.Context.Support;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +12,14 @@ namespace Cloud.Note.Web.Controllers
 {
     public class ValuesController : ApiController
     {
+
+        private IUserService UserService
+        {
+            get
+            {
+                return ContextRegistry.GetContext().GetObject("UserService") as IUserService;
+            }
+        }
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -22,9 +33,9 @@ namespace Cloud.Note.Web.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
+        //public void Post([FromBody]string value)
+        //{
+        //}
 
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
@@ -34,6 +45,21 @@ namespace Cloud.Note.Web.Controllers
         // DELETE api/values/5
         public void Delete(int id)
         {
+        }
+
+        [HttpPost]
+        public string ValidateUser(User user)
+        {
+            User returnUser = UserService.ValidateUser(user);
+            if (returnUser == null)
+            {
+                return "用户名或密码错误";
+            }
+            return "成功";
+        }
+        public string Options()
+        {
+            return null; // HTTP 200 response with empty body
         }
     }
 }

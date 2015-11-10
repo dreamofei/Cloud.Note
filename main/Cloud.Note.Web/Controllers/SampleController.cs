@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Cloud.Note.Utils;
 
 namespace Cloud.Note.Web.Controllers
 {
@@ -35,5 +36,11 @@ namespace Cloud.Note.Web.Controllers
             return SampleService.GetTime();
         }
 
+        public void TestCrypt()
+        {
+            string data = "12345";
+            string encrypted=data.Encrypt();
+            string orgdata = SecurityUtil.AESDecrypt(encrypted);
+        }
     }
 }
