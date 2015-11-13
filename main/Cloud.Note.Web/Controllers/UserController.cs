@@ -12,6 +12,7 @@ namespace Cloud.Note.Web.Controllers
 {
     public class UserController : BaseController
     {
+        #region test
         private IUserService UserService
         {
             get
@@ -25,15 +26,18 @@ namespace Cloud.Note.Web.Controllers
             return UserService.GetUser();
         }
 
-        public JsonResult Get()   
+        public JsonResult Get()
         {
-            Cloud.Note.Domain.User user=UserService.Get();
-            if(user==null)
+            Cloud.Note.Domain.User user = UserService.Get();
+            if (user == null)
             {
-                return Json(new { Msg="No data"},JsonRequestBehavior.AllowGet);
+                return Json(new { Msg = "No data" }, JsonRequestBehavior.AllowGet);
             }
-            return Json(new { Id=user.Id,Name=user.UserName,Email=user.Email,PhoneNumber=user.PhoneNumber},JsonRequestBehavior.AllowGet);
+            return Json(new { Id = user.Id, Name = user.UserName, Email = user.Email, PhoneNumber = user.PhoneNumber }, JsonRequestBehavior.AllowGet);
         }
+        #endregion
+
+        #region account
 
         public JsonResult ValidateUser(User user)
         {
@@ -44,7 +48,8 @@ namespace Cloud.Note.Web.Controllers
                 return Json(new { }, ResultType.Failure, "用户名或密码错误");
             }
             return Json(
-                new { 
+                new
+                {
                     Id = returnUser.Id,
                     UserName = returnUser.UserName,
                     Email = returnUser.Email,
@@ -55,26 +60,21 @@ namespace Cloud.Note.Web.Controllers
                 );
         }
 
-        public void ValidateUser2(string user1)
+        public JsonResult CheckExistEmail([System.Web.Http.FromBody]string email)
         {
-            //User user=JavaScriptSerialize 
-            //User returnUser = UserService.ValidateUser(user);
-            //if (returnUser == null)
-            //{
-            //    return Json(new { }, ResultType.Failure, "用户名或密码错误");
-            //}
-            //return Json(
-            //    new
-            //    {
-            //        Id = returnUser.Id,
-            //        UserName = returnUser.UserName,
-            //        Email = returnUser.Email,
-            //        PhoneNumber = returnUser.PhoneNumber
-            //    },
-            //    ResultType.Success,
-            //    ""
-            //    );
+            if(string.IsNullOrWhiteSpace(email))
+            {
+                return Json(new {},ResultType.Failure,"邮箱不能为空");
+            }
+            User returnUser = UserService.GetUserByEmail(email);
+            if(returnUser==null)
+            {
+                return Json(new {Email=email }, ResultType.Success, "");
+            }
+            return Json(new { },ResultType.Failure,"该邮箱已经被注册");
         }
+
+        #endregion
 
     }
 }

@@ -12,5 +12,6 @@ namespace Cloud.Note.Service
         User Get();
 
         User ValidateUser(User user);
+        User GetUserByEmail(string email);
     }
 }

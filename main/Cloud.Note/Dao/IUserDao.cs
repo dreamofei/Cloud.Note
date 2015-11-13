@@ -14,5 +14,6 @@ namespace Cloud.Note.Dao
         User ValidateByUserName(User user);
         User ValidateByEmail(User user);
         User ValidateByPhoneNumber(User user);
+        User GetUserByEmail(string email);
     }
 }

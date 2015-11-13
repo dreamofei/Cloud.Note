@@ -43,5 +43,10 @@ namespace Cloud.Note.Service
             }
             return null;
         }
+
+        public User GetUserByEmail(string email)
+        {
+            return UserDao.GetUserByEmail(email);
+        }
     }
 }

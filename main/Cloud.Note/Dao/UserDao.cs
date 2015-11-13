@@ -32,5 +32,10 @@ namespace Cloud.Note.Dao
         {
             return Session.QueryOver<User>().Where(u => (u.PhoneNumber == user.PhoneNumber && u.Password == user.Password)).SingleOrDefault();
         }
+
+        public User GetUserByEmail(string email)
+        {
+            return Session.QueryOver<User>().Where(u => u.Email == email).SingleOrDefault();
+        }
     }
 }
